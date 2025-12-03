@@ -1,17 +1,40 @@
-import { createRouter, createWebHistory } from "vue-router"; 
-const router = createRouter({  
-    history: createWebHistory(""),  
-    routes: [    {      
-        path: "/",      
-        name: "main",      
-        component: () => import("../components/main_test.vue"),    
-    },    
-    {      
-        path: "/test",      
-        name: "test",      
-        component: () => import("../components/test_test.vue"),    
-    },  
-],
-}); 
+import { createRouter, createWebHashHistory } from "vue-router";
+import PageHome from '@/views/PageHome.vue'
+import BoardList from '@/views/board/BoardList.vue'
+import BoardDetail from '@/views/board/BoardDetail.vue'
+import BoardWrite from '@/views/board/BoardWrite.vue'
 
-export default router;
+const routes = [
+    {
+        path: '/',
+        name: 'PageHome',
+        component: PageHome
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: () => import('../views/PageAbout.vue')
+    },
+    {
+        path: '/board/list',
+        name: 'BoardList',
+        component: BoardList
+    },
+    {
+        path: '/board/detail',
+        name: 'BoardDetail',
+        component: BoardDetail
+    },
+    {
+        path: '/board/wirte',
+        name: 'BoardWrite',
+        component: BoardWrite
+    }
+]
+
+const router = createRouter({
+    history: createWebHashHistory(process.env.BASE_URL),
+    routes
+})
+
+export default router
