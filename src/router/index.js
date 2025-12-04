@@ -3,12 +3,18 @@ import PageHome from '@/views/PageHome.vue'
 import BoardList from '@/views/board/BoardList.vue'
 import BoardDetail from '@/views/board/BoardDetail.vue'
 import BoardWrite from '@/views/board/BoardWrite.vue'
+import Login from '@/views/common/Login.vue'
 
 const routes = [
     {
         path: '/',
         name: 'PageHome',
         component: PageHome
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login
     },
     {
         path: '/about',
@@ -29,7 +35,7 @@ const routes = [
         path: '/board/wirte',
         name: 'BoardWrite',
         component: BoardWrite
-    }
+    },
 ]
 
 const router = createRouter({
