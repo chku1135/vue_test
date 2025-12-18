@@ -4,6 +4,16 @@ import BoardList from '@/views/board/BoardList.vue'
 import BoardDetail from '@/views/board/BoardDetail.vue'
 import BoardWrite from '@/views/board/BoardWrite.vue'
 import Login from '@/views/common/Login.vue'
+import store from '@/vuex/store'
+
+const requireAuth = () => (from, to, next) => {
+    const token = localStorage.getItem('user_token')
+    if (token) {
+        store.state.isLogin = true
+        return next()
+    }
+    next('/login')
+}
 
 const routes = [
     {
@@ -32,7 +42,7 @@ const routes = [
         component: BoardDetail
     },
     {
-        path: '/board/wirte',
+        path: '/board/write',
         name: 'BoardWrite',
         component: BoardWrite
     },

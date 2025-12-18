@@ -1,18 +1,23 @@
 <template>
-  <PageHeader/>
+  <!-- <PageHeader/> -->
   <router-view/>
   <PageFooter/>
+  <PageSidebar/>
+  <LoadingBar :loading="this.$store.state.loadingStatus"></LoadingBar>:
 </template>
 
 <script>
 import PageHeader from '@/components/PageHeader'
 import PageFooter from '@/components/PageFooter'
+import LoadingBar from './views/common/LoadingBar.vue';
+import PageSidebar from '@/components/PageSidebar';
 
 export default {
   name: 'App',
   components: {
     PageFooter,
-    PageHeader
+    PageHeader,
+    PageSidebar
   }
 }
 </script>

@@ -1,9 +1,11 @@
+import './assets/w3.css'
 import './assets/common.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import axios from './utils/axios'
 import router from './router'
-import axios from 'axios'
+// import axios from 'axios'
 import store from './vuex/store'
 
 const app = createApp(App)
